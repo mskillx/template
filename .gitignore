@@ -1,0 +1,40 @@
+# Django ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+local_settings.py
+.settings_dev.py
+.secrets.py  # WARNING:  Do not commit secrets!
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+*.log
+*.txt
+static/  # Important: Exclude if serving static files via Django
+
+# Next.js ignores
+.next/
+node_modules/
+.env
+.env.local
+.env.development
+.env.production
+.DS_Store
+coverage/
+dist/
+build/
+.next/cache
+.next/types/
+.next/static/
+
+# General ignores (applies to both)
+.vscode/  # VS Code settings
+.idea/  # IntelliJ/PyCharm settings
+*.swp  # Vim swap files
+tmp/
+temp/
+.pytest_cache/  # Pytest cache
+.coverage
+.nyc_output/
