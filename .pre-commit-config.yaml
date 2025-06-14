@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/prettier/prettier
+    rev: v3.0.0  # Or the latest version
+    hooks:
+      - id: prettier
+  - repo: https://github.com/eslint/eslint
+    rev: v8.50.0  # Or the latest version
+    hooks:
+      - id: eslint
+        args:
+          - --ext
+          - js
+          - --ext
+          - jsx
+          - --ext
+          - ts
+          - --ext
+          - tsx
+  - repo: https://github.com/psf/black
+    rev: 23.10.0  # Or the latest version
+    hooks:
+      - id: black
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0  # Or the latest version
+    hooks:
+      - id: isort
+        name: isort
