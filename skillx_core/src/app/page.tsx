@@ -31,7 +31,7 @@ export default function Home() {
 
         <section id="section2" className="section section-2 h-[400px] m-1 bg-gray-800 text-white px-4 py-2 rounded-md">
           <h1>Solutions</h1>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6  md:gap-4 lg:gap-4 xl:gap-4">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((icon) => (
               <button className="icon-button focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform scale-100 hover:scale-105" key={icon}>
                   
