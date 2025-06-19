@@ -1,5 +1,5 @@
 dev:
-	npm run dev
+	python manage.py runserver
 
-build:
-	docker build -t skillx/core_app:latest .
+migrate:
+	python manage.py migrate
