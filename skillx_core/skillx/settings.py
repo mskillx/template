@@ -11,7 +11,25 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta # import this library top of the settings.py file
 
+# put on your settings.py file below INSTALLED_APPS
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+    'SLIDING_TOKEN_LIFETIME': timedelta(days=30),
+    'SLIDING_TOKEN_REFRESH_LIFETIME_LATE_USER': timedelta(days=1),
+    'SLIDING_TOKEN_LIFETIME_LATE_USER': timedelta(days=30),
+}
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,12 +43,13 @@ SECRET_KEY = 'django-insecure-2y3qvi!n-gkz55b!^&koe-^b**su-pmg5d6g-*$amj_y3(erj5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "digital_assets.apps.DigitalAssetsConfig",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +60,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +69,22 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_HEADERS = "*"
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://localhost",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1",
+]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1",
+]
+
+CORS_ORIGIN_ALLOW_ALL = False
 
 ROOT_URLCONF = 'skillx.urls'
 
